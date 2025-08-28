@@ -1,0 +1,101 @@
+:root{
+  --bg-1:#0f1226; --bg-2:#171a3a; --glass: rgba(255,255,255,0.08); --border: rgba(255,255,255,0.18);
+  --text:#e9ecff; --muted:#b8bcea; --accent:#7c5cff; --accent-2:#2ee0c6; --danger:#ff5c7a; --ok:#2ee07d;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(1200px 700px at 20% -10%, #2b1f63 0%, transparent 60%),
+    radial-gradient(800px 600px at 120% 20%, #133a4a 0%, transparent 60%),
+    linear-gradient(120deg, var(--bg-1), var(--bg-2));
+}
+
+.app{
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 16px 32px;
+  display: grid;
+  gap: 18px;
+}
+
+.card{
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 20px;
+}
+
+.hero .title{
+  display:flex; align-items:flex-start; gap:12px; flex-wrap:wrap;
+}
+.logo{
+  width:44px; height:44px; border-radius:12px; display:grid; place-items:center; font-weight:800; font-size:22px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color:#0a0b16; box-shadow:0 6px 20px rgba(124,92,255,.35);
+}
+h1{margin:0; font-size:clamp(22px, 3.8vw, 32px)}
+.subtitle{margin:6px 0 0; color:var(--muted); font-size:14px}
+
+.controls{
+  display:grid; grid-template-columns: 1fr auto auto; gap:10px; align-items:end; margin-top:12px;
+}
+.control, select, input[type="text"], input[type="number"], button{
+  background:#11142c; color:var(--text); border:1px solid var(--border);
+  padding:10px 12px; border-radius:12px; font-size:14px; outline:none; transition:.2s ease;
+}
+.small{font-size:12px; color:var(--muted); display:block; margin-bottom:4px}
+button{cursor:pointer; border:1px solid #6e72ff33; background:linear-gradient(135deg,#1a1e46,#121637)}
+.btn.primary{background:linear-gradient(135deg, var(--accent), #5b49ff); border:none; color:#0b0b18; font-weight:700}
+.btn.ghost{background:transparent}
+button:active{transform:translateY(1px)}
+
+.panel .panel-header{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap}
+.panel-title{margin:0}
+.hint{font-size:12px; color:var(--muted)}
+
+.players-wrap{
+  display:grid; gap:12px;
+  grid-template-columns: 1fr 140px;
+  margin-top: 12px;
+}
+.player-item{display:contents}
+.player-item input[type="text"]{width:100%}
+.player-item input[type="number"]{width:100%}
+
+.actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+.error{color:var(--danger); font-size:13px; margin-top:8px}
+
+.teams{
+  display:grid; gap:16px; grid-template-columns: 1fr 1fr;
+}
+.team-card{padding:16px; border-radius:12px; border:1px solid var(--border); background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02))}
+.team-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:10px}
+.team-name{font-weight:700}
+.badge{font-size:12px; padding:6px 10px; border-radius:999px; background:#11142c; border:1px solid var(--border); color:var(--muted)}
+.list{display:grid; gap:8px}
+.list-item{display:flex; align-items:center; justify-content:space-between; padding:10px 12px; border-radius:12px; background:rgba(255,255,255,0.04); border:1px solid var(--border)}
+.name{font-weight:600}
+.score{font-variant-numeric: tabular-nums; color:var(--muted)}
+.metrics{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+.kpi{background:rgba(255,255,255,0.05); border:1px solid var(--border); padding:10px 12px; border-radius:10px; font-size:13px; color:var(--muted)}
+.kpi b{color:var(--text)}
+.footer{display:flex; justify-content:flex-end; margin-bottom: 8px}
+
+/* RESPONSIVE */
+@media (max-width: 900px){
+  .controls{grid-template-columns: 1fr 1fr;}
+  .players-wrap{grid-template-columns: 1fr 120px;}
+}
+@media (max-width: 680px){
+  .controls{grid-template-columns: 1fr;}
+  .players-wrap{grid-template-columns: 1fr;}
+  .teams{grid-template-columns: 1fr;}
+  .app{margin-top:16px}
+}

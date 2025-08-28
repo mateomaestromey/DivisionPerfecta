@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>División Perfecta</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="hero card">
+      <div class="title">
+        <div class="logo">⚖️</div>
+        <div>
+          <h1>Bienvenido a División Perfecta!</h1>
+          <p class="subtitle">Cargá la lista de jugadores y promediá el puntaje individual (1.00–10.00) para armar dos equipos parejos.</p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <label class="small" for="modeSelect">¿De cuántos jugadores va a ser el partido?</label>
+        <select id="modeSelect" class="control">
+          <option value="10">10 (Cancha de 5)</option>
+          <option value="12">12 (Cancha de 6)</option>
+          <option value="16">16 (Cancha de 8)</option>
+          <option value="22" selected>22 (Cancha de 11)</option>
+        </select>
+        <button id="startBtn" class="btn primary">Comenzar</button>
+        <button id="resetBtn" class="btn ghost" title="Vaciar la planilla">Limpiar</button>
+      </div>
+    </header>
+
+    <section class="card panel" id="playersCard" hidden>
+      <div class="panel-header">
+        <div>
+          <h2 class="panel-title">Cargar jugadores</h2>
+          <p class="hint">Nombre + puntaje (1.00–10.00). TIP: TAB para moverte, ENTER arma equipos.</p>
+        </div>
+        <p class="hint"><span id="counter">0</span> / <span id="maxCounter">22</span> jugadores</p>
+      </div>
+      <div class="players-wrap" id="playersWrap"></div>
+      <div id="errors" class="error" role="alert" aria-live="polite"></div>
+      <div class="actions">
+        <button id="genBtn" class="btn primary">Armar equipos</button>
+        <button id="shuffleBtn" class="btn">Mezclar aleatorio</button>
+        <button id="optimizeBtn" class="btn">Optimizar balance</button>
+      </div>
+    </section>
+
+    <section class="teams" id="teamsSection" hidden>
+      <article class="card team-card" id="teamA"></article>
+      <article class="card team-card" id="teamB"></article>
+    </section>
+
+    <footer class="footer">
+      <span class="hint" id="diffHint"></span>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
